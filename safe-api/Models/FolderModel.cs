@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 namespace safe_api.Models;
 
@@ -6,6 +7,11 @@ public class FolderModel
 {
     [Key]
     public int FolderId { get; set; }
+    
+    [Required, StringLength(36)]
+    public string UserId { get; set; }
+    
+    public IdentityUser User { get; set; }
     
     public List<FileModel> Files { get; set; }
     
