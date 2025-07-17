@@ -1,0 +1,66 @@
+@mixin flex($direction: row, $justify: center, $align: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+.app-header {
+    @include flex(row, space-between, center);
+
+    .header-logo-area {
+        @include flex(row, center, center);
+
+        .header-logo {
+            cursor: pointer;
+            width: 70px;
+            height: 70px;
+        }
+    }
+
+    .search-area {
+        @include flex(row, center, center);
+        width: 100%;
+        margin-inline: 5vw;
+
+        .search-bar {
+            outline: none;
+            border: solid 2px #526BAA;
+            border-radius: 10px 0 0 10px;
+            padding: 10px;
+            width: 100%;
+            filter: drop-shadow(2px 2px 2px #526BAA);
+
+            &:hover {
+                border: solid 2px #568aff;
+            }
+
+            &:focus {
+                border: solid 2px #568aff;
+            }
+        }
+
+        .search-button {
+            @extend .search-bar;
+            width: 3vw;
+            background: #526BAA;
+            cursor: pointer;
+            color: white;
+            border-radius: 0 10px 10px 0;
+
+            &:hover {
+                background: #568aff;
+            }
+        }
+    }
+
+    .actions-area {
+        @include flex(row, center, center);
+        gap: 2em;
+        font-size: 25px;
+
+        .bi {
+            cursor: pointer;
+        }
+    }
+}
